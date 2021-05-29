@@ -1,0 +1,57 @@
+.tubs-container {
+    display: flex;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.news-tab {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    transition: 400ms;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    padding: 0 15px;
+    color: #3E4554;
+    outline: none;
+}
+
+.news-tab:hover {
+    color: rgb(48, 114, 231);
+}
+
+.--activeTub {
+    font-family: 'Montserrat-Bold';
+    color: rgb(48, 114, 231);
+}
+
+.news-tab:not(:first-child) {
+    border-left: 2px solid #282c34;
+}
+
+.news-tab:first-child {
+    padding: 0 15px 0 0;
+}
+
+.news-card-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 30px;
+}
+@media (max-width: 1000px) {
+    .news-card-wrapper {
+        grid-template-columns: 1fr  1fr;
+    }
+}
+@media (max-width: 700px) {
+    .news-card-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-gap: 30px;
+    }
+}

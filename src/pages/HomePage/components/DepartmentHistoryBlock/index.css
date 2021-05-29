@@ -1,0 +1,162 @@
+.department-history {
+    padding: 50px 165px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.department-history-info-wrapper {
+    max-width: 625px;
+}
+
+.department-history-wrapper-image-la {
+    position: relative;
+    height: 380px;
+    width: 370px;
+    margin-bottom: 30px;
+}
+
+.department-history-image-la {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.burger-back, .border-back {
+    z-index: 1;
+}
+
+.burger-back {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    width: 200px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.border-back {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.department-history-info-title {
+    font-family: 'Montserrat-Bold';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: 0.05em;
+    margin-bottom: 30px;
+    color: #3E4554;
+}
+
+.department-history-info-description {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+    color: #3E4554;
+    margin-bottom: 15px;
+}
+
+.department-history-info-read-all {
+    font-family: 'Montserrat-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+
+    letter-spacing: 0.05em;
+
+    color: #2F80ED;
+}
+
+.department-history-wrapper-info-la {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 3px;
+}
+
+.info-la-lastName {
+    font-family: 'Montserrat-Bold';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: 0.05em;
+
+    color: #2F80ED;
+}
+
+.info-la-name-secondName {
+    font-family: 'Montserrat-Bold';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 22px;
+
+    letter-spacing: 0.05em;
+    color: #3E4554;
+}
+
+.info-la-status {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: #3E4554;
+}
+
+@media (max-width: 1200px) {
+    .department-history-wrapper-la {
+        display: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    .department-history {
+        padding: 50px 65px;
+    }
+    .first-block-content-wrapper {
+        max-width: 535px;
+    }
+    .first-block {
+        padding: 100px 65px 100px;
+    }
+    .first-block-wrapper img {
+        position: static;
+        width: 100%;
+        display: none;
+    }
+    .first-block-wrapper {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media (max-width: 800px) {
+    .department-history {
+        padding:30px 15px;
+    }
+    .department-history-info-description {
+        font-size: 14px;
+    }
+}

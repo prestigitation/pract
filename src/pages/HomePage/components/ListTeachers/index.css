@@ -1,0 +1,57 @@
+.list-teachers {
+    padding: 60px 165px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+
+.list-teachers-title {
+    font-family: 'Montserrat-Bold';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: 0.05em;
+    margin-bottom: 30px;
+    color: #3E4554;
+}
+
+.list-teachers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    align-items: flex-start;
+    justify-content: center;
+    grid-gap: 35px 60px;
+    padding: 0 80px;
+}
+
+@media (max-width: 1440px) {
+    .list-teachers-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 1340px) {
+    .list-teachers {
+        padding: 50px 65px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .list-teachers-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .list-teachers-grid {
+        grid-template-columns: 245px;
+        align-items: center;
+        padding: 0 30px;
+        justify-content: center;
+    }
+    .list-teachers {
+        padding: 50px 15px;
+    }
+}
