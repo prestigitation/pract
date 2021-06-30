@@ -1,0 +1,76 @@
+.description-directions {
+    padding: 50px 165px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    background: linear-gradient(0deg, #F1F9FF, #F1F9FF), #FFFFFF;
+}
+
+.description-directions-title {
+    font-family: 'Montserrat-Bold';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: 0.05em;
+    margin-bottom: 30px;
+    color: #3E4554;
+}
+
+.description-directions-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 35px;
+    padding: 0 80px;
+}
+
+@media (max-width: 1340px) {
+    .description-directions {
+        padding: 50px 65px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .description-directions {
+        padding: 50px 65px;
+    }
+
+    .description-directions-cards {
+        padding: 0;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .description-directions {
+        padding: 50px 15px;
+    }
+
+    .description-directions-cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        align-items: center;
+        justify-content: center;
+        grid-gap: 35px;
+    }
+
+    .directions-card {
+        gap: 20px;
+         max-width: unset;
+    }
+
+    .description-directions-title {
+        font-family: 'Montserrat-Bold';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 0.05em;
+
+        color: #3E4554;
+    }
+}

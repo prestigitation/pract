@@ -1,0 +1,105 @@
+
+.department-history-wrapper-people {
+    cursor: pointer;
+}
+.department-history-wrapper-image-people {
+    position: relative;
+    height: 250px;
+    width: 244px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.border-back svg path {
+    transition: 400ms;
+}
+.department-history-wrapper-people:hover .border-back svg path {
+    fill: #FCB346;
+}
+.department-history-wrapper-people:hover .info-people-lastName {
+    color: #FCB346;
+}
+.department-history-image-people {
+    z-index: 2;
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.department-history-image-people img {
+    height: 250px;
+}
+.burger-back, .border-back {
+    z-index: 1;
+}
+
+.burger-back {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.border-back {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.department-history-wrapper-info-people {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 3px;
+}
+
+.info-people-lastName {
+    transition: 400ms;
+    font-family: 'Montserrat-Bold';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 29px;
+    letter-spacing: 0.05em;
+
+    color: #2F80ED;
+}
+
+.info-people-name-secondName {
+    font-family: 'Montserrat-Bold';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 22px;
+
+    letter-spacing: 0.05em;
+    color: #3E4554;
+}
+
+.info-people-status {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: #3E4554;
+}
+
+@media (max-width: 700px) {
+    .department-history-wrapper-people {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        width: 245px;
+    }
+}

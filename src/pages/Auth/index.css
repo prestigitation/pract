@@ -1,0 +1,42 @@
+.auth-block {
+    font-family: 'Montserrat';
+    width: 1350px;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: normal;
+    font-weight: normal;
+    margin-top: 75px;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.05em;
+    color: #000000;
+    transition: 400ms;
+    text-align: center;
+}
+
+.auth-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.auth-form>input,
+.auth-form>button {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.auth-form>button {
+    width: 15%;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 22px;
+    background-color: rgb(23, 98, 128);
+    color: white;
+}
+
+
+/* TODO : МЕДИА ЗАПРОСЫ, УБРАТЬ WIDTH в МОБИЛКЕ*/

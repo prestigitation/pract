@@ -1,0 +1,175 @@
+
+.first-block {
+    background: linear-gradient(0deg, #F1F9FF, #F1F9FF), #FFFFFF;
+    padding: 265px 165px 100px;
+}
+.first-block-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.first-block-wrapper img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.first-block-left-content {
+    z-index: 2;
+}
+.first-block-content-wrapper {
+    max-width: 535px;
+    gap: 10px;
+    display: flex;
+    flex-flow: column;
+}
+.first_block-title {
+    font-family: 'Montserrat-Bold';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 78px;
+    color: #3E4554;
+}
+
+.first_block-name {
+    font-family: 'Montserrat-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 44px;
+    color: #3E4554;
+
+}
+
+.first_block-name_of_university {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #959CB1;
+}
+
+.first_block-about-department {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 11px 33px;
+    background: #2F97ED;
+    border-radius: 100px;
+    border: 2px solid transparent;
+    margin-top:44px;
+    cursor: pointer;
+    transition: 400ms;
+    font-family: 'Montserrat-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+.first_block-about-department:hover {
+    background: #FFFFFF;
+    color: #2F97ED;
+    border: 2px solid #2F97ED;
+}
+
+.first-block-counter-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding-top: 250px;
+}
+
+@media (max-width: 1300px) {
+    .first-block-content-wrapper {
+        max-width: 535px;
+    }
+    .first-block {
+        padding: 119px 165px 100px;
+    }
+    .first-block-wrapper img {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+        width: 50%;
+    }
+    .first-block-counter-wrapper {
+        padding-top: 150px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .first-block-content-wrapper {
+        max-width: 535px;
+    }
+    .first-block {
+        padding: 100px 65px 100px;
+    }
+    .first-block-wrapper img {
+        position: static;
+        width: 100%;
+        display: none;
+    }
+    .first-block-wrapper {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media (max-width: 800px) {
+    .first-block-wrapper img {
+        display: block;
+        position: static;
+        width: 100%;
+    }
+    .first-block {
+        padding: 100px 35px 50px!important;
+    }
+
+    .first-block-counter-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        padding-top: 50px;
+    }
+
+    .first-block-counter-wrapper .counter-value {
+        font-size: 36px;
+    }
+
+    .first-block-counter-wrapper .counter-label {
+        font-size: 18px;
+    }
+
+    .first_block-title {
+        font-size: 36px;
+        line-height: unset;
+    }
+
+    .first_block-name {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .first_block-name_of_university {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .first_block-about-department {
+        font-size: 12px;
+        line-height: 15px;
+        margin-top: 30px;
+    }
+    .first-block-content-wrapper {
+        gap: 10px;
+    }
+}
