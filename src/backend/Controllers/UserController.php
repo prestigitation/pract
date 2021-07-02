@@ -28,5 +28,15 @@ class UserController {
             die(); 
         }
     }
+    public function login() {
+        $conn = $this->connection->execute("SELECT login,id,password FROM users WHERE login="."'".$this->login."'");
+        $verified_password = password_verify($this->password,$conn['password']); // проверяем схожесть хэша с введенным паролем
+        if($verified_password) { // если пароль верный, отправляем на клиент данные для хранилища
+            echo json_encode([
+                'id' => $conn['id'],
+                'login' => $conn['login']
+            ]);
+        }
+    }
 }
 ?>

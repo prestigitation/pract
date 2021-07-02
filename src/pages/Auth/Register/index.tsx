@@ -47,14 +47,16 @@ const Register = () => {
     return (
         <div className="auth-block">
             <span> Регистрация </span>
+            {notificationType != 'success' ? 
             <form encType="multipart/form-data" onSubmit={register}  className="auth-form" method='POST'>
-                <input type="text" name='login' value={login} onChange={handleLoginChange}  placeholder="Придумайте имя пользователя" required></input>
-                <input type="email" name='email' value={email} onChange={handleEmailChange} placeholder="Введите адрес электронной почты" required></input>
-                <input type="password" name='password' value={password} onChange={handlePasswordChange} placeholder="Введите пароль(от 6 символов)"required></input>
-                <input type="text" name='FIO' value={FIO} onChange={handleFIOChange} placeholder='Введите ваше ФИО' required></input>
-                <input type="text" name='phone' value={phone} onChange={handlePhoneChange} placeholder='Введите действительный номер телефона' required></input>
+                <input type="text" name='login' value={login} onChange={(e) => setLogin(e.target.value)}  placeholder="Придумайте имя пользователя" required></input>
+                <input type="email" name='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Введите адрес электронной почты" required></input>
+                <input type="password" name='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Введите пароль(от 6 символов)"required></input>
+                <input type="text" name='FIO' value={FIO} onChange={(e) => setFIO(e.target.value)} placeholder='Введите ваше ФИО' required></input>
+                <input type="text" name='phone' value={phone} onChange={(e) => setPhone(e.target.value)} placeholder='Введите действительный номер телефона' required></input>
                 <button type="submit" > Отправить </button>
-            </form> 
+            </form> : ``}
+
             <div className="notification">
                 {notificationType && notificationMessage 
                 ? <Notification message={notificationMessage} type={notificationType} /> 
