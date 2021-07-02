@@ -13,6 +13,10 @@ const InitialApp = () => {
             <Menu/>
             <Routers/>
             <Footer/>
+<<<<<<< HEAD
+=======
+
+>>>>>>> fdb6be4f463a218af0ac46e8699d6513dc82d1bd
         </div>
     );
 };

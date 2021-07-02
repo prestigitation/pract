@@ -49,6 +49,10 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+<<<<<<< HEAD
+=======
+    opacity: 0.5;
+>>>>>>> fdb6be4f463a218af0ac46e8699d6513dc82d1bd
 }
 
 .department-history-info-title {
@@ -159,4 +163,8 @@
     .department-history-info-description {
         font-size: 14px;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> fdb6be4f463a218af0ac46e8699d6513dc82d1bd
