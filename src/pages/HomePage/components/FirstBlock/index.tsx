@@ -24,6 +24,7 @@ const FirstBlock = () => {
                 <Counter label={"проект"} countValue={371}/>
             </div>
         </div>
+
     );
 };
 
