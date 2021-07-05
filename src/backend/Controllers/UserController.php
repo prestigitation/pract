@@ -1,5 +1,5 @@
 <?php
-require __DIR__ .'/Database.php';
+require_once __DIR__ .'/Database.php';
 class UserController {
     private $login;
     private $password;

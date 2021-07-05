@@ -25,7 +25,8 @@
     justify-content: center;
 }
 
-.burger-back, .border-back {
+.burger-back,
+.border-back {
     z-index: 1;
 }
 
@@ -49,10 +50,6 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-<<<<<<< HEAD
-=======
-    opacity: 0.5;
->>>>>>> fdb6be4f463a218af0ac46e8699d6513dc82d1bd
 }
 
 .department-history-info-title {
@@ -83,9 +80,7 @@
     font-weight: bold;
     font-size: 14px;
     line-height: 17px;
-
     letter-spacing: 0.05em;
-
     color: #2F80ED;
 }
 
@@ -102,7 +97,6 @@
     font-size: 24px;
     line-height: 29px;
     letter-spacing: 0.05em;
-
     color: #2F80ED;
 }
 
@@ -112,7 +106,6 @@
     font-weight: 800;
     font-size: 18px;
     line-height: 22px;
-
     letter-spacing: 0.05em;
     color: #3E4554;
 }
@@ -123,7 +116,6 @@
     font-weight: normal;
     font-size: 12px;
     line-height: 15px;
-
     color: #3E4554;
 }
 
@@ -158,13 +150,9 @@
 
 @media (max-width: 800px) {
     .department-history {
-        padding:30px 15px;
+        padding: 30px 15px;
     }
     .department-history-info-description {
         font-size: 14px;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> fdb6be4f463a218af0ac46e8699d6513dc82d1bd

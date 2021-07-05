@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import "./index.css";
 import Teacher from "./components/People";
 import images from "../../../../assets/image";
+import axios from "axios";
+
 
 let teachers = [
     {
@@ -57,6 +59,10 @@ let teachers = [
 ];
 
 const ListTeachers = () => {
+    let [test,setTest] = useState('')
+    useEffect(() => {
+        axios.get('http://localhost:8000/teachers', {headers: {'Access-Control-Allow-Origin': 'http://localhost:8000'}}).then(response => console.log(response) )
+    })
     return (
         <div className={"list-teachers"}>
             <div className={"list-teachers-title"}>
@@ -69,6 +75,7 @@ const ListTeachers = () => {
                         item={teacher}
                     />
                 ))}
+                {test}
             </div>
         </div>
     );
