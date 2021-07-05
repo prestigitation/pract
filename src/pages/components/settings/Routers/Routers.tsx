@@ -8,6 +8,8 @@ import {
 import HomePage from "../../../HomePage";
 import Register from '../../../Auth/Register'
 import Login from '../../../Auth/Login'
+import Dashboard from "../../../Dashboard";
+import UsersDashboard from "../../../Dashboard/UsersDashboard";
 
 const Routers = () => {
 
@@ -17,6 +19,10 @@ const Routers = () => {
                 <Route  exact path="/" component={HomePage}/>
                 <Route  exact path="/register" component={Register}/>
                 <Route exact path="/login" component={Login}/>
+                <Route path="/dashboard/users" component={UsersDashboard}/>
+                <Route  path="/dashboard" component={Dashboard}/>
+                
+
             </Switch>
         </Router>
     );

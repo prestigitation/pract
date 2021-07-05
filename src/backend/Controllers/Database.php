@@ -29,7 +29,7 @@ class DbConnection {
              if(gettype($result) == 'boolean') {
                  return $result;
              } else {
-                return mysqli_fetch_assoc($result);
+                return mysqli_fetch_all($result,MYSQLI_ASSOC);
              }
         } catch(Exception $e) {
             throw new Exception($e);

@@ -38,5 +38,15 @@ class UserController {
             ]);
         }
     }
+    public function getAll() {
+        $query = $this->connection->execute("SELECT * from users");
+        echo json_encode((array) $query);
+    }
+
+    public function findUser() {
+        // запрос на роли : select * from users left join roles on users.role_id = roles.id
+        $query = $this->connection->execute("SELECT * from users WHERE login = '".$_POST['search']."' LIMIT 1");
+        echo json_encode($query);
+    }
 }
 ?>

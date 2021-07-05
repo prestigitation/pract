@@ -12,7 +12,9 @@ $teachersController = new TeachersController();
 $routes = array(
     ['path' => '/register', 'method' => 'POST', 'callback' => function () use ($userController) { return $userController->register();}],
     ['path' => '/login', 'method' => 'POST', 'callback' => function () use ($userController) { return $userController->login();}],
-    ['path' => '/teachers', 'method' => 'GET', 'callback' => function () use ($teachersController) { return $teachersController->getTeachers();}]
+    ['path' => '/users', 'method' => 'GET', 'callback' => function () use ($userController) { return $userController->getAll();}],
+    ['path' => '/teachers', 'method' => 'GET', 'callback' => function () use ($teachersController) { return $teachersController->getTeachers();}],
+    ['path' => '/users/search','method' => 'POST', 'callback' => function () use ($userController) { return $userController->findUser();}]
 );
 
 $route = array_filter($routes,function($route) { // находим маршрут по запрашиваемом URI
@@ -20,5 +22,6 @@ $route = array_filter($routes,function($route) { // находим маршру�
 });
 
 
-call_user_func($route[0]['callback'] ?? $route[1]['callback'] ?? $route[2]['callback']); // вызываем коллбэк, указанный в массиве 
+
+call_user_func(array_pop($route)['callback']); // вызываем коллбэк, указанный в массиве 
 ?>
