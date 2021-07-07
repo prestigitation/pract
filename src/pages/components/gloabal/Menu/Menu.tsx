@@ -16,10 +16,13 @@ import PhoneSVG from "../UI/SVGComponents/PhoneSVG";
 import ArrowSVG from "../UI/SVGComponents/ArrowSVG";
 import BurgerSVG from "../UI/SVGComponents/BurgerSVG";
 
+import {useSelector} from 'react-redux'
+import { Link } from "react-router-dom";
+
 const Menu = () => {
 
     const [isOpen,setIsOpen] = useState(false)
-
+    let user = useSelector((state:any)=> state.users.user)
     const clickElement = () => {
         setIsOpen(false)
     }
@@ -39,10 +42,14 @@ const Menu = () => {
                     <div className="menu-content">
                         <div className={'menu-content-header'}>
                             <div className={'menu-content-header-avatar'}>
-                                <img src={images.avatar} alt="avatar"/>
-                                <div>ИВАНОВА ДАРЬЯ
-                                    ИВАНОВНА
-                                </div>
+                                {
+                                    user.id && user.login ?  <>
+                                        <img src={images.avatar} alt="avatar"/>
+                                        <Link to={`/users/${user.id}`}>
+                                            {user.login}
+                                        </Link>
+                                    </>: ``
+                                }
                             </div>
                             <div className={'menu-content-header-status'}>
                                 <div className={'menu-content-header-item'} onClick={clickElement}>

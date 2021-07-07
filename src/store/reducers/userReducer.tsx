@@ -9,7 +9,9 @@ const defaultState = {
 const LOGIN = 'LOGIN'
 
 
+
 export const log_in  = (user : any) => ({type:LOGIN, payload : user})
+
 
 
 export default function userReducer(state = defaultState,action:any) {
@@ -23,6 +25,7 @@ export default function userReducer(state = defaultState,action:any) {
                 }
             }
         }
+
         default : {
             return state
         }

@@ -12,21 +12,7 @@ const Register = () => {
     const [login,setLogin] = useState('');
     const [FIO,setFIO] = useState('');
     const [phone,setPhone] = useState('');
-    function handleEmailChange(e : any) {
-        setEmail(e.target.value);
-    }
-    function handleLoginChange(e : any) {
-        setLogin(e.target.value);
-    }
-    function handlePasswordChange(e : any) {
-        setPassword(e.target.value);
-    }
-    function handleFIOChange(e : any) {
-        setFIO(e.target.value)
-    }
-    function handlePhoneChange(e : any) {
-        setPhone(e.target.value)
-    }
+    
     async function register(e:any) {
         e.preventDefault(); // предотвращаем перезагрузку страницы
         let formData = new FormData();
