@@ -29,13 +29,14 @@ class UserController {
         }
     }
     public function login() {
-        $conn = $this->connection->execute("SELECT login,id,password FROM users WHERE login="."'".$this->login."' LIMIT 1");
+        $conn = $this->connection->execute("SELECT login,id,password,role_id FROM users WHERE login="."'".$this->login."' LIMIT 1");
         $user = array_pop($conn);
         $verified_password = password_verify($this->password,$user['password']); // проверяем схожесть хэша с введенным паролем
         if($verified_password) { // если пароль верный, отправляем на клиент данные для хранилища
             echo json_encode([
                 'id' => $user['id'],
-                'login' => $user['login']
+                'login' => $user['login'],
+                'role_id' => $user['role_id']
             ]);
         }
     }
@@ -76,30 +77,38 @@ class UserController {
             $updatedPassword = password_hash($newPassword,PASSWORD_DEFAULT);
             $result = "UPDATE users SET ";
             if($this->login) {
-                $result .= "login = $this->login, ";
+                $result .= "login = '".$this->login."', ";
             } else {
-                $result.= "login = ".$user['login'].", ";
+                $result.= "login = '".$user['login']."', ";
             }
 
             if($this->email) {
-                $result .= "email = $this->email, ";
+                $result .= "email = '".$this->email."', ";
             } else {
-                $result.= "email = ".$user['email'].", ";
+                $result.= "email = '".$user['email']."', ";
             }
-
             if($this->FIO) {
-                $result .= "FIO = $this->FIO, ";
+                if($this->phone) {
+                    $result .= "FIO = '".$this->FIO."', ";
+                } else {
+                    $result .= "FIO = '".$this->FIO."' ";
+                }
+                
             } else {
-                $result.= "FIO = ".$user['FIO'].", ";
+                if($this->phone) {
+                    $result.= "FIO = '".$user['FIO']."', ";
+                } else $result.= "FIO = '".$user['FIO']."' ";
+                
             }
 
             if($this->phone) {
-                $result .= "phone = $this->phone, ";
+                if(!$newPassword) {
+                    $result .= "phone = '".$this->phone."' ";
+                }
             } else {
                 if($newPassword) {
-                    $result .= "password = $updatedPassword, ";
+                    $result .= "phone = '".$this->phone."', "."password = '".$updatedPassword."', ";
                 }
-                $result .= "phone = ".$user['phone'];
             }
             $result.=" WHERE id= ".$user['id'];
         }
@@ -108,10 +117,14 @@ class UserController {
         
 
         $query = $this->connection->execute($result);
-        var_dump($result);
-        var_dump($query);
 
+        //Загрузка аватаров на сервер
         $avatar = $_FILES['avatar'] ?? null;
+        $avatarsDestination = __DIR__."/../../../public/avatars/";
+        if(isset($avatar)) {
+            move_uploaded_file($avatar['tmp_name'],$avatarsDestination.(int)$user['id'].".jpeg");
+        }
+        
 
 
     }

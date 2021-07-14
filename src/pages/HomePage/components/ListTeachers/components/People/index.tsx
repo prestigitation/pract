@@ -15,7 +15,11 @@ const Teacher = (props:TeacherProps) => {
         firstName,
         lastName,
         secondName,
-        status
+        status,
+        surname,
+        name,
+        position,
+        id
     } = props.item
 
     return (
@@ -24,13 +28,13 @@ const Teacher = (props:TeacherProps) => {
                 <BurgerSVGsm className={'burger-back'}/>
                 <BorderSVGsm className={'border-back'}/>
                 <div className={'department-history-image-people'}>
-                    <img src={img} alt="images.tyagulska"/>
+                    <img src={`/teachers/${id}.jpeg`} alt="images.tyagulska"/>
                 </div>
             </div>
             <div className="department-history-wrapper-info-people">
-                <div className={'info-people-lastName'}>{lastName} тест</div>
-                <div className={'info-people-name-secondName'}>{firstName} {secondName}</div>
-                <div className={'info-people-status'}>{status}</div>
+                <div className={'info-people-lastName'}>{surname}</div>
+                <div className={'info-people-name-secondName'}>{name}</div>
+                <div className={'info-people-status'}>{position}</div>
             </div>
         </div>
     )

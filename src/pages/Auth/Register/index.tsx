@@ -2,6 +2,7 @@ import '../index.css'
 import axios from 'axios'
 import { useState } from 'react';
 import Notification from '../../Notification'
+import { useSelector } from 'react-redux';
 
 
 const Register = () => {
@@ -12,6 +13,7 @@ const Register = () => {
     const [login,setLogin] = useState('');
     const [FIO,setFIO] = useState('');
     const [phone,setPhone] = useState('');
+    const user = useSelector((state:any) => state.users.user)
     
     async function register(e:any) {
         e.preventDefault(); // предотвращаем перезагрузку страницы
@@ -33,7 +35,7 @@ const Register = () => {
     return (
         <div className="auth-block">
             <span> Регистрация </span>
-            {notificationType != 'success' ? 
+            {!user.id && !user.login ? <div className="notification">
             <form encType="multipart/form-data" onSubmit={register}  className="auth-form" method='POST'>
                 <input type="text" name='login' value={login} onChange={(e) => setLogin(e.target.value)}  placeholder="Придумайте имя пользователя" required></input>
                 <input type="email" name='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Введите адрес электронной почты" required></input>
@@ -41,13 +43,11 @@ const Register = () => {
                 <input type="text" name='FIO' value={FIO} onChange={(e) => setFIO(e.target.value)} placeholder='Введите ваше ФИО' required></input>
                 <input type="text" name='phone' value={phone} onChange={(e) => setPhone(e.target.value)} placeholder='Введите действительный номер телефона' required></input>
                 <button type="submit" > Отправить </button>
-            </form> : ``}
-
-            <div className="notification">
-                {notificationType && notificationMessage 
-                ? <Notification message={notificationMessage} type={notificationType} /> 
-                : ``}
-            </div>
+            </form>
+            {notificationType && notificationMessage 
+            ? <Notification message={notificationMessage} type={notificationType} /> 
+            : ``}
+        </div> : ``}
         </div>
 
     )

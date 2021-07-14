@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux'
 import { store } from '../../store'
 import { useParams } from 'react-router'
 import axios from 'axios'
+import { withRouter } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react'
 import { formatDiagnosticsWithColorAndContext } from 'typescript'
 
@@ -62,18 +63,19 @@ const UserPanel = () => {
     return (
         <div className='user-panel'>
             <div> Информация о пользователе </div>
-            <form method='POST' id='form' encType='multipart/form-data' onSubmit={changeUserData}>
+            <form method='POST' id='form' encType='multipart/form-data' onSubmit={changeUserData} className={'user-form'}>
                 <label> Логин : {userInfo?.login}</label> <input value={login} onChange={(e) => setLogin(e.target.value)} type='text' name='login'></input>
                 <label> E-mail : {userInfo?.email}</label> <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} name='email'></input>
                 <label> Номер телефона : {userInfo?.phone}</label> <input type='text' value={phone} onChange={(e) => setPhone(e.target.value)} name='phone'></input>
                 <label> Ваше ФИО : {userInfo?.FIO}</label> <input value={FIO} onChange={(e) => setFIO(e.target.value)} type='text' name='FIO'></input>
                 <label> Вы можете прикрепить новый аватар : </label> <input  type='file' id='avatar' name='avatar' ref={inputRef}></input>
+                <img src={`/avatars/${user.id}.jpeg`} id={'user-avatar'}></img>
                 <label> Новый пароль  : </label> <input type='password' value={newPassword} onChange={(e) => setNewPassword(e.target.value)} name='newPassword'></input>
                 <label> Для изменения данных введите пароль</label> <input type='password' value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} required name='currentPassword'></input>
-                <button type='submit'>Отправить </button>
+                <button type='submit' id={'submit'}>Отправить </button>
             </form>   
         </div>
     )
 }
 
-export default UserPanel
+export default withRouter(UserPanel)

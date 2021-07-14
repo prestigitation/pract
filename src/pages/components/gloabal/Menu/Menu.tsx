@@ -17,10 +17,10 @@ import ArrowSVG from "../UI/SVGComponents/ArrowSVG";
 import BurgerSVG from "../UI/SVGComponents/BurgerSVG";
 
 import {useSelector} from 'react-redux'
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Menu = () => {
-
+    const history = useHistory()
     const [isOpen,setIsOpen] = useState(false)
     let user = useSelector((state:any)=> state.users.user)
     const clickElement = () => {
@@ -44,7 +44,7 @@ const Menu = () => {
                             <div className={'menu-content-header-avatar'}>
                                 {
                                     user.id && user.login ?  <>
-                                        <img src={images.avatar} alt="avatar"/>
+                                        <img src={`/avatars/${user.id}.jpeg`} id={'avatar'} alt="avatar"/>
                                         <Link to={`/users/${user.id}`}>
                                             {user.login}
                                         </Link>

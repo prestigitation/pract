@@ -5,7 +5,7 @@ import images from "../../../../assets/image";
 import axios from "axios";
 
 
-let teachers = [
+/*let teachers = [
     {
         lastName: "Тягульская",
         firstName: "Людмила",
@@ -56,12 +56,13 @@ let teachers = [
         status: "Доцент ",
         img: images.glazov,
     },
-];
+];*/
 
 const ListTeachers = () => {
     let [test,setTest] = useState('')
+    const [teachers,setTeachers] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:8000/teachers', {headers: {'Access-Control-Allow-Origin': 'http://localhost:8000'}}).then(response => console.log(response) )
+        axios.get('http://localhost:8000/teachers', {headers: {'Access-Control-Allow-Origin': 'http://localhost:8000'}}).then(({data}) =>  setTeachers(data))
     })
     return (
         <div className={"list-teachers"}>
@@ -71,7 +72,7 @@ const ListTeachers = () => {
             <div className={"list-teachers-grid"}>
                 {teachers.map((teacher, index) => (
                     <Teacher
-                        key={`${index}-${teacher.lastName}`}
+                        key={`${index}-${teacher}`}
                         item={teacher}
                     />
                 ))}

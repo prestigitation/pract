@@ -4,7 +4,7 @@ require __DIR__. '/Controllers/TeachersController.php';
 require __DIR__. '/Controllers/RolesController.php';
 header('Access-Control-Allow-Origin: *');
 
-header('Access-Control-Allow-Methods: GET, POST');
+header("Access-Control-Allow-Methods: GET, POST, PATCH',DELETE");
 
 header("Access-Control-Allow-Headers: *");
 
@@ -23,7 +23,12 @@ $routes = array(
     ['regex' => "@.users.\d{0,60}@",'method' => 'GET','callback' => function () use($userController) { return $userController->findUserById();}],
     ['regex' => "@.users.\d{0,60}@",'method' => 'POST','callback' => function () use($userController) { return $userController->changeUserData();}],
     
+    ['path' => '/teachers/search','method' => 'POST', 'callback' => function() use($teachersController) { return $teachersController->searchOne();}],
     ['path' => '/teachers', 'method' => 'GET', 'callback' => function () use ($teachersController) { return $teachersController->getTeachers();}],
+    ['path' => '/teachers/update','method' => 'POST','callback' => function() use($teachersController) {return $teachersController->updateOne();}],
+    ['path' => '/teachers/create','method' => 'POST','callback' => function() use($teachersController) {return $teachersController->createOne();}],
+    ['regex' => '@.teachers.\d{0,60}@','method' => "DELETE", 'callback' => function() use($teachersController) {return $teachersController->deleteOne();}],
+
     ['path' => '/roles','method' => 'GET', 'callback' => function() use ($rolesController) {return $rolesController->getAll();}]
 );
 
@@ -42,5 +47,6 @@ $route = array_filter($routes,function($route) { // находим маршру�
 
 
 
-call_user_func(array_pop($route)['callback']); // вызываем коллбэк, указанный в массиве 
+
+call_user_func(array_shift($route)['callback']); // вызываем коллбэк, указанный в массиве 
 ?>

@@ -3,14 +3,19 @@ import './index.css'
 import images from "../../../../assets/image";
 import {Link} from 'react-router-dom'
 import { useHistory } from "react-router";
-import {DefaultRootState, useSelector} from 'react-redux'
+import {DefaultRootState, useDispatch, useSelector} from 'react-redux'
+import { log_out } from "../../../../store/reducers/userReducer";
 
 
 const Header = () =>  {
     let history = useHistory()
     let user = useSelector((state:any)=> state.users.user)
+    const dispatch = useDispatch()
     function pushTo(url : string) {
         history.push(url)
+    }
+    function logout() {
+        dispatch(log_out())
     }
     function handleClick() {
         history.push('/')
@@ -35,7 +40,7 @@ const Header = () =>  {
                             <div className={"header-auth"} onClick={() => pushTo('/register')}> Регистрация </div>
                         </> 
                         : <>
-                            <div className="header-auth">
+                            <div className="header-auth" onClick={logout}>
                                 Выход
                             </div>
                         </>
