@@ -29,7 +29,8 @@ class UserController {
         }
     }
     public function login() {
-        $conn = $this->connection->execute("SELECT login,id,password,role_id FROM users WHERE login="."'".$this->login."' LIMIT 1");
+        $conn = $this->connection->execute("SELECT login,id,password,role_id FROM users 
+        WHERE login="."'".$this->login."' LIMIT 1");
         $user = array_pop($conn);
         $verified_password = password_verify($this->password,$user['password']); // проверяем схожесть хэша с введенным паролем
         if($verified_password) { // если пароль верный, отправляем на клиент данные для хранилища

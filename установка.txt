@@ -1,0 +1,7 @@
+в главной папке :
+npm install (иметь node js > 12)
+npm start
+
+в папке src/backend
+поднять сервер на 8000 порту
+(команда php -S localhost:8000 index.php) 
